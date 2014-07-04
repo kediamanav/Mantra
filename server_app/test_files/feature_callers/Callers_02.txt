@@ -1,0 +1,21 @@
+setup_router from APP_SERVICE
+\tAPP_SERVICE
+\t\tget_class_ancestors
+\t\tget_class_clients
+\t\tget_class_descendants
+\t\tget_class_suppliers
+\t\tget_compilation_result
+\t\tget_contract_view
+\t\tget_execution_result
+\t\tget_flat_view
+\t\tget_interface_view
+\t\tmap_uri_template_agent_with_request_methods
+\t\trouter
+\tWSF_FILE_SYSTEM_HANDLER
+\t\tmake_hidden
+\t\tset_directory_index
+\tWSF_ROUTER
+\t\thandle_with_request_methods
+\t\tMethods_get
+\tWSF_ROUTER_SELF_DOCUMENTATION_HANDLER
+\t\tmake

@@ -1,0 +1,9 @@
+Target `-asda' does not exist or is not a compilable target.
+Choose among the following target(s):
+ [1] app
+ [2] app_any
+ [3] app_cgi
+ [4] app_libfcgi
+ [5] app_nino
+
+Select the target you want (0 to quit):

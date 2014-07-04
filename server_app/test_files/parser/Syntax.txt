@@ -1,0 +1,15 @@
+Eiffel Compilation Manager
+Version 14.05.9.5158 GPL Edition - win64
+
+Degree 6: Examining System
+Degree 5: Parsing Classes
+-------------------------------------------------------------------------------
+
+Syntax error at line 27 in class APPLICATION
+
+            print(c.out)(
+        end
+--------^
+
+
+-------------------------------------------------------------------------------

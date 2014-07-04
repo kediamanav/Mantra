@@ -1,0 +1,227 @@
+<div class="Compilation_Results" >
+			<!-- Error Codes-->
+			<div ng-class="{true:'disabled',false:''}[compile_result[0].Errors==null]">
+				<h3> ERROR TABLE</h3>
+				<table>
+					<tr ng-repeat="error in compile_result[0].Errors">
+						<td>
+							<pre>Error Code: {{error.Error_Code}}Error: {{error.Error}}What to do: {{error.What_to_do}}Class: {{error.Class}}Feature: {{error.Feature}}{{error.Before_Line}}Line:{{error.Line}}{{error.After_Line}}</pre>
+							<!--<pre>Dump: {{error.Dump}}</pre>-->
+						</td>
+					</tr>
+				</table>
+				<!--<pre>Dump: {{compile_result[0].Error_Message}}</pre>-->
+			</div>
+			
+			<!--Warning Codes-->
+			<div ng-class="{true:'disabled',false:''}[compile_result[0].Warnings==null]">
+				<h3> WARNING TABLE </h3>
+				<table>
+					<tr ng-repeat="warning in compile_result[0].Warnings">
+						<td>
+							<pre>Warning Code: {{warning.Warning_Code}}Warning: {{warning.Warning}}What to do: {{warning.What_to_do}}Class: {{warning.Class}}Feature: {{warning.Feature}}{{warning.After_Feature}}</pre>
+							<!--<pre>Dump: {{warning.Dump}}</pre>-->
+						</td>
+					</tr>
+				</table>
+				<!--<pre>Dump: {{compile_result[0].Warning_Message}}</pre>-->
+			</div>	
+		</div>
+		
+		<h2>Execution Results</h2>
+		<div class="Execution_Results">
+			<table>
+				<tr ng-repeat="res in run_result">
+					<td>
+						<pre>{{res.Execution_Output}}</pre>
+					</td>
+				</tr>
+			</table>
+			
+			<!-- Error Codes-->
+			<div ng-class="{true:'disabled',false:''}[run_result[0].Compile_Errors==null]">
+				<h3> ERROR TABLE</h3>
+				<table>
+					<tr ng-repeat="error in run_result[0].Compile_Errors">
+						<td>
+							<pre>Error Code: {{error.Error_Code}}Error: {{error.Error}}What to do: {{error.What_to_do}}Class: {{error.Class}}Feature: {{error.Feature}}{{error.Before_Line}}Line:{{error.Line}}{{error.After_Line}}</pre>
+							<!--<pre>Dump: {{error.Dump}}</pre>-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<!--Warning Codes-->
+			<div ng-class="{true:'disabled',false:''}[run_result[0].Warnings==null]">
+				<h3> WARNING TABLE </h3>
+				<table>
+					<tr ng-repeat="warning in run_result[0].Warnings">
+						<td>
+							<pre>Warning Code: {{warning.Warning_Code}}Warning: {{warning.Warning}}What to do: {{warning.What_to_do}}Class: {{warning.Class}}Feature: {{warning.Feature}}{{warning.After_Feature}}</pre>
+							<!--<pre>Dump: {{warning.Dump}}</pre>-->
+						</td>
+					</tr>
+				</table>
+			</div>	
+			
+			<!-- Runtime Error Codes-->
+			<div ng-class="{true:'disabled',false:''}[run_result[0].Runtime_Errors==null]">
+				<h3> RUNTIME ERROR TABLE</h3>
+				<pre>{{run_result[0].Runtime_Errors[0].Initial_Text}}</pre>
+				<table>
+					<th>Class/Object</th>
+					<th>Routine</th>
+					<th>Message</th>
+					<th>Effect</th>
+					<tr ng-repeat="error in run_result[0].Runtime_Errors">
+						<td>{{error.Class}}</td>
+						<td>{{error.Feature}} {{error.Routine}}</td>
+						<td>{{error.Message}}</td>
+						<td>{{error.Effect}}</td>
+					</tr>
+				</table>
+				<!--<pre>
+					Dump: {{run_result[0].Error_Message}}
+				</pre>-->
+			</div>
+		</div>
+		
+		<div class="Class_Views">
+			<h2>Class View (Interface)</h2>
+			<div class="Interface_View">
+				{{interface_view_result[0].result}}
+			</div>
+		</div>
+		
+		<div class="Class_Views">
+			<h2>Class View (Flat)</h2>
+			<div class="Flat_View">
+				<!-- Error Codes-->
+				<pre>{{flat_view_result[0].Error_Message}}</pre>
+				<div ng-class="{true:'disabled',false:''}[flat_view_result[0].Errors==null]">
+					<h3> ERROR TABLE</h3>
+					<table>
+						<tr ng-repeat="error in flat_view_result[0].Errors">
+							<td>
+								<pre>Error Code: {{error.Error_Code}}Error: {{error.Error}}What to do: {{error.What_to_do}}Class: {{error.Class}}Feature: {{error.Feature}}{{error.Before_Line}}Line:{{error.Line}}{{error.After_Line}}</pre>
+								<!--<pre>Dump: {{error.Dump}}</pre>-->
+							</td>
+						</tr>
+					</table>
+					<!--<pre>Dump: {{compile_result[0].Error_Message}}</pre>-->
+				</div>
+				
+				<!--Warning Codes-->
+				<div ng-class="{true:'disabled',false:''}[flat_view_result[0].Warnings==null]">
+					<h3> WARNING TABLE </h3>
+					<table>
+						<tr ng-repeat="warning in flat_view_result[0].Warnings">
+							<td>
+								<pre>Warning Code: {{warning.Warning_Code}}Warning: {{warning.Warning}}What to do: {{warning.What_to_do}}Class: {{warning.Class}}Feature: {{warning.Feature}}{{warning.After_Feature}}</pre>
+								<!--<pre>Dump: {{warning.Dump}}</pre>-->
+							</td>
+						</tr>
+					</table>
+					<!--<pre>Dump: {{compile_result[0].Warning_Message}}</pre>-->
+				</div>
+				<pre>{{flat_view_result[0].Flat_View}}</pre>
+			</div>
+		</div>
+		
+		<div class="Class_Views">
+			<h2>Class View (Contract)</h2>
+			<div class="Contract_View">
+				<!-- Error Codes-->
+				<div ng-class="{true:'disabled',false:''}[contract_view_result[0].Errors==null]">
+					<h3> ERROR TABLE</h3>
+					<table>
+						<tr ng-repeat="error in contract_view_result[0].Errors">
+							<td>
+								<pre>Error Code: {{error.Error_Code}}Error: {{error.Error}}What to do: {{error.What_to_do}}Class: {{error.Class}}Feature: {{error.Feature}}{{error.Before_Line}}Line:{{error.Line}}{{error.After_Line}}</pre>
+								<!--<pre>Dump: {{error.Dump}}</pre>-->
+							</td>
+						</tr>
+					</table>
+					<!--<pre>Dump: {{compile_result[0].Error_Message}}</pre>-->
+				</div>
+				
+				<!--Warning Codes-->
+				<div ng-class="{true:'disabled',false:''}[contract_view_result[0].Warnings==null]">
+					<h3> WARNING TABLE </h3>
+					<table>
+						<tr ng-repeat="warning in contract_view_result[0].Warnings">
+							<td>
+								<pre>Warning Code: {{warning.Warning_Code}}Warning: {{warning.Warning}}What to do: {{warning.What_to_do}}Class: {{warning.Class}}Feature: {{warning.Feature}}{{warning.After_Feature}}</pre>
+								<!--<pre>Dump: {{warning.Dump}}</pre>-->
+							</td>
+						</tr>
+					</table>
+					<!--<pre>Dump: {{compile_result[0].Warning_Message}}</pre>-->
+				</div>
+				<pre>{{contract_view_result[0].Contract_View}}</pre>
+			</div>
+		</div>
+		
+		<h2>Class Descendants</h2>
+		<div class="Class_Descendants">
+			<!-- Error Codes-->
+				<div ng-class="{true:'disabled',false:''}[class_descendants_result[0].Errors==null]">
+					<h3> ERROR TABLE</h3>
+					<table>
+						<tr ng-repeat="error in class_descendants_result[0].Errors">
+							<td>
+								<pre>Error Code: {{error.Error_Code}}Error: {{error.Error}}What to do: {{error.What_to_do}}Class: {{error.Class}}Feature: {{error.Feature}}{{error.Before_Line}}Line:{{error.Line}}{{error.After_Line}}</pre>
+								<!--<pre>Dump: {{error.Dump}}</pre>-->
+							</td>
+						</tr>
+					</table>
+					<!--<pre>Dump: {{compile_result[0].Error_Message}}</pre>-->
+				</div>
+				
+				<!--Warning Codes-->
+				<div ng-class="{true:'disabled',false:''}[class_descendants_result[0].Warnings==null]">
+					<h3> WARNING TABLE </h3>
+					<table>
+						<tr ng-repeat="warning in class_descendants_result[0].Warnings">
+							<td>
+								<pre>Warning Code: {{warning.Warning_Code}}Warning: {{warning.Warning}}What to do: {{warning.What_to_do}}Class: {{warning.Class}}Feature: {{warning.Feature}}{{warning.After_Feature}}</pre>
+								<!--<pre>Dump: {{warning.Dump}}</pre>-->
+							</td>
+						</tr>
+					</table>
+					<!--<pre>Dump: {{compile_result[0].Warning_Message}}</pre>-->
+				</div>
+				<pre>{{class_descendants_result[0].Class_Descendants_Dump}}</pre>
+		</div>
+		
+		<h2>Class Ancestors</h2>
+		<div class="Class_Ancestors">
+			<!-- Error Codes-->
+				<div ng-class="{true:'disabled',false:''}[class_ancestors_result[0].Errors==null]">
+					<h3> ERROR TABLE</h3>
+					<table>
+						<tr ng-repeat="error in class_ancestors_result[0].Errors">
+							<td>
+								<pre>Error Code: {{error.Error_Code}}Error: {{error.Error}}What to do: {{error.What_to_do}}Class: {{error.Class}}Feature: {{error.Feature}}{{error.Before_Line}}Line:{{error.Line}}{{error.After_Line}}</pre>
+								<!--<pre>Dump: {{error.Dump}}</pre>-->
+							</td>
+						</tr>
+					</table>
+					<!--<pre>Dump: {{compile_result[0].Error_Message}}</pre>-->
+				</div>
+				
+				<!--Warning Codes-->
+				<div ng-class="{true:'disabled',false:''}[class_ancestors_result[0].Warnings==null]">
+					<h3> WARNING TABLE </h3>
+					<table>
+						<tr ng-repeat="warning in class_ancestors_result[0].Warnings">
+							<td>
+								<pre>Warning Code: {{warning.Warning_Code}}Warning: {{warning.Warning}}What to do: {{warning.What_to_do}}Class: {{warning.Class}}Feature: {{warning.Feature}}{{warning.After_Feature}}</pre>
+								<!--<pre>Dump: {{warning.Dump}}</pre>-->
+							</td>
+						</tr>
+					</table>
+					<!--<pre>Dump: {{compile_result[0].Warning_Message}}</pre>-->
+				</div>
+				<pre>{{class_ancestors_result[0].Class_Ancestors_Dump}}</pre>
+		</div>

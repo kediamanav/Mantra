@@ -1,0 +1,12 @@
+Eiffel Compilation Manager
+Version 14.05.9.5158 GPL Edition - win64
+
+Degree 6: Examining System
+Degree 5: Parsing Classes
+Degree 4: Analyzing Inheritance
+Degree 3: Checking Types
+Degree 2: Generating Byte Code
+Degree 1: Generating Metadata
+Melting System Changes
+
+System Recompiled.

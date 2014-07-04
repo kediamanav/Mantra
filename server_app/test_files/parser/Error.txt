@@ -1,0 +1,25 @@
+Eiffel Compilation Manager
+Version 14.05.9.5158 GPL Edition - win64
+
+Degree 6: Examining System
+Degree 5: Parsing Classes
+Degree 4: Analyzing Inheritance
+Degree 3: Checking Types
+-------------------------------------------------------------------------------
+
+Error code: VUAR(1)
+
+Error: wrong number of actual arguments in feature call.
+What to do: make sure that number of actuals matches number of formals.
+
+Class: APPLICATION
+Feature: make
+Called feature: print (o: detachable ANY) from ANY
+Number of formals: 1
+Number of actuals: 2
+Line: 26
+        a:=4
+->      print(c.out,1)
+      end
+
+-------------------------------------------------------------------------------

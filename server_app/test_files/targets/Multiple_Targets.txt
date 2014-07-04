@@ -1,0 +1,8 @@
+This project has more than one target:
+ [1] app
+ [2] app_any
+ [3] app_cgi
+ [4] app_libfcgi
+ [5] app_nino
+
+Select the target you want (0 to quit):
