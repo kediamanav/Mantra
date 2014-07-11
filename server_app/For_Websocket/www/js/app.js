@@ -93,8 +93,9 @@ serverApp.factory('mySocket', ['$q', '$rootScope', function($q, $rootScope) {
 
 
 serverApp.factory('CompileService', function($resource) {
-  return $resource('/compile',{}, {query: {method:'GET',  isArray:true}, 'save':   {method:'POST'}});
+  return $resource('/compile',{}, {query: {method:'GET',  isArray:true}, 'save':   {method:'POST',  isArray:true}});
 });
+
 
 serverApp.factory('RunService', function($resource) {
   return $resource('/run',{}, {query: {method:'GET', isArray:true}, 'save':   {method:'POST'}});

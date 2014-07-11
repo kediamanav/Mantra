@@ -1,37 +1,89 @@
  <div>
 	<!--Body content-->
-	<h1>{{message}}</h1>
-	<h2>Status Code {{status_code}}</h2>
+	<h1 class="header_text">Mantra : Eiffel as a web service</h1>
 	<div class="main_div">
+		
 		<div class="form_elements">
-			<label> Enter Id: </label>
-			<input type="text" ng-model="project.id" value="90799D1A-C197-4822-BEE9-C0D076CA8562">90799D1A-C197-4822-BEE9-C0D076CA8562</input>
-			<label> Enter Path: </label>
-			<input type="text" ng-model="project.path" value="C:/Users/Manav/Desktop/eve_server/sample/sample.ecf">C:/Users/Manav/Desktop/eve_server/sample/sample.ecf</input>
-			<label> Enter Class: </label>
-			<input type="text" ng-model="project.class" value="APPLICATION">APPLICATION</input>
-			<label> Enter Feature: </label>
-			<input type="text" ng-model="project.feature" value="make">balance</input>
-			<label> Enter Target: </label>
-			<input type="text" ng-model="project.target" value="sample">sample</input>
-			<label> Enter Command Line: </label>
-			<input type="text" ng-model="project.command_line">ec -config sample.ecf -short APPLICATION</input>
-			<label> Response Id: {{id}}</label>
+			<div>
+				<div class="form_group">
+					<label for="id">Enter Id:</label>
+				</div>
+				<div class="form_group">
+					<input type="text" ng-model="project.id" value="90799D1A-C197-4822-BEE9-C0D076CA8562"/>90799D1A-C197-4822-BEE9-C0D076CA8562
+				</div>
+			</div>
+			<div>
+				<div class="form_group">
+					<label> Enter Path: </label>
+				</div>
+				<div class="form_group">
+					<input type="text" ng-model="project.path" value="C:/Users/Manav/Desktop/eve_server/sample/sample.ecf">C:/Users/Manav/Desktop/eve_server/sample/sample.ecf</input>
+				</div>
+			</div>
+			<div>
+				<div class="form_group">
+					<label> Enter Class: </label>
+				</div>
+				<div class="form_group">
+					<input type="text" ng-model="project.class" value="APPLICATION">APPLICATION</input>
+				</div>
+			</div>
+			<div>
+				<div class="form_group">
+					<label> Enter Feature: </label>
+				</div>
+				<div class="form_group">
+					<input type="text" ng-model="project.feature" value="make">balance</input>
+				</div>
+			</div>
+			<div>
+				<div class="form_group">
+					<label> Enter Target: </label>
+				</div>
+				<div class="form_group">
+					<input type="text" ng-model="project.target" value="sample">sample</input>
+				</div>
+			</div>
+				<div>
+				<div class="form_group">
+					<label> Enter Command Line: </label>
+				</div>
+				<div class="form_group">
+					<input type="text" ng-model="project.command_line">ec -config sample.ecf -short APPLICATION</input>
+				</div>
+			</div>
+			<div>
+				<div class="form_group">
+					<label> Response Id:</label>
+				</div>
+				<div class="form_group">
+					{{id}}
+				</div>
+			</div>
+			<div>
+				<div class="form_group">
+					<label> Status Code:</label>
+				</div>
+				<div class="form_group">
+					{{status_code}}
+				</div>
+			</div>
 		</div>
 
 		<div class="div_buttons">
-			<button class="btn" ng-click="compile()">Compile</button>
-			<button class="btn" ng-click="cleanCompile()">Clean Compile</button>
-			<button class="btn" ng-click="run_exe()">Run</button>
-			<button class="btn" ng-click="get_interface_view()">Get Interface View</button>
-			<button class="btn" ng-click="get_flat_view()">Get Flat View</button>
-			<button class="btn" ng-click="get_contract_view()">Get Contract View</button>
-			<button class="btn" ng-click="get_class_descendants()">Get Class Descendants</button>
-			<button class="btn" ng-click="get_class_ancestors()">Get Class Ancestors</button>
-			<button class="btn" ng-click="get_class_clients()">Get Class Clients</button>	
-			<button class="btn" ng-click="get_class_suppliers()">Get Class Suppliers</button>	
-			<button class="btn" ng-click="get_feature_callers()">Get Feature Callers</button>	
-			<button class="btn" ng-click="get_user_command_line()">Get Command Line Output</button>	
+			<!--<button class="btn btn-info" ng-click="compile2()">New Compile</button>-->
+			<button class="btn btn-info" ng-click="compile()">Compile</button>
+			<button class="btn btn-info" ng-click="cleanCompile()">Clean Compile</button>
+			<button class="btn btn-info" ng-click="run_exe()">Run</button>
+			<button class="btn btn-info" ng-click="get_interface_view()">Get Interface View</button>
+			<button class="btn btn-info" ng-click="get_flat_view()">Get Flat View</button>
+			<button class="btn btn-info" ng-click="get_contract_view()">Get Contract View</button>
+			<button class="btn btn-info" ng-click="get_class_descendants()">Get Class Descendants</button>
+			<button class="btn btn-info" ng-click="get_class_ancestors()">Get Class Ancestors</button>
+			<button class="btn btn-info" ng-click="get_class_clients()">Get Class Clients</button>	
+			<button class="btn btn-info" ng-click="get_class_suppliers()">Get Class Suppliers</button>	
+			<button class="btn btn-info" ng-click="get_feature_callers()">Get Feature Callers</button>	
+			<button class="btn btn-info" ng-click="get_user_command_line()">Get Command Line Output</button>	
 		</div>
 	
 		<div class="results">
@@ -53,15 +105,15 @@
 				</div>
 			</div>
 			
-			<!--Warning Codes-->
-			<div ng-class="{true:'disabled',false:''}[result[0].Has_Warning==null]">
-				<div ng-class="{true:'disabled',false:''}[result[0].Has_Warning==false]">
-					<h3> WARNING TABLE </h3>
+			<!--info Codes-->
+			<div ng-class="{true:'disabled',false:''}[result[0].Has_info==null]">
+				<div ng-class="{true:'disabled',false:''}[result[0].Has_info==false]">
+					<h3> info TABLE </h3>
 					<table>
-						<tr ng-repeat="warning in result[0].Warnings">
+						<tr ng-repeat="info in result[0].infos">
 							<td>
-								<pre>Warning Code: {{warning.Warning_Code}}Warning: {{warning.Warning}}What to do: {{warning.What_to_do}}Class: {{warning.Class}}Feature: {{warning.Feature}}{{warning.After_Feature}}</pre>
-								<!--<pre>Dump: {{warning.Dump}}</pre>-->
+								<pre>info Code: {{info.info_Code}}info: {{info.info}}What to do: {{info.What_to_do}}Class: {{info.Class}}Feature: {{info.Feature}}{{info.After_Feature}}</pre>
+								<!--<pre>Dump: {{info.Dump}}</pre>-->
 							</td>
 						</tr>
 					</table>
@@ -89,17 +141,24 @@
 			</div>
 			
 		</div>
-		<h2 class="response_dump_text"> Websocket tester</h2>
+		
+		<h2 class="header_text"> Websocket tester</h2>
 		<div class="user_input">
-			<label>Your input: </label>
-			<input type="text" ng-model="project.input"></input>
-			<button class="btn" ng-click="send_input()">Send</button>
+			<div class="form_group">
+				<label>Your input: </label>
+			</div>
+			<div class="form_group">
+				<input type="text" ng-model="project.input"></input>
+			</div>
+			<div class="form_group">
+				<button class="btn btn-info" ng-click="send_input()">Send</button>
+			</div>
 		</div>
 		<div class="response_dump">
 			<textarea class="response_textarea" ng-model="websocket_tester">
 			</textarea>
 		</div>
-		<h2 class="response_dump_text"> Response Dump</h2>
+		<h2 class="header_text"> Response Dump</h2>
 		<div class="response_dump">
 			<textarea class="response_textarea">{{dump}}{{output}}
 			</textarea>

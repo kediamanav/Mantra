@@ -1,6 +1,6 @@
 {
 	"Compilation_Timeout" : 180000,
-	"Runtime_Timeout" : 10000,
+	"Runtime_Timeout" : 100000,
 	"Project_Duration" : 300000,
 	"Pre_Project_Duration" : 240000,
 	"Periodic_Time" : 60000,

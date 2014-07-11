@@ -1,6 +1,6 @@
 note
 	description : "simple application root class"
-	date        : "$Date: 2013-06-19 13:31:07 -0300 (mié 19 de jun de 2013) $"
+	date        : "$Date: 2013-06-19 13:31:07 -0300 (miÃ© 19 de jun de 2013) $"
 	revision    : "$Revision: 62 $"
 
 deferred class
@@ -75,7 +75,7 @@ feature {NONE} -- Initialization
 			router.handle_with_request_methods ("/api/doc", doc, router.methods_GET)
 
 			--Mapping my URI's for functions
-			map_uri_template_agent_with_request_methods ("/compile", agent get_compilation_result, router.methods_GET)
+			map_uri_template_agent_with_request_methods ("/compile", agent get_compilation_result, router.methods_post)
 			map_uri_template_agent_with_request_methods ("/run", agent get_execution_result, router.methods_GET)
 			map_uri_template_agent_with_request_methods ("/interfaceView", agent get_interface_view, router.methods_GET)
 			map_uri_template_agent_with_request_methods ("/flatView", agent get_flat_view, router.methods_GET)
@@ -140,6 +140,7 @@ feature -- Execution
 	get_compilation_result (req: WSF_REQUEST; res: WSF_RESPONSE)
 		local
 			res_string:STRING
+			parser:JSON_PARSER
 			json_object:JSON_OBJECT
 			json_array: JSON_ARRAY
 			header:HTTP_HEADER
@@ -148,6 +149,9 @@ feature -- Execution
 			id:STRING
 			clean_compile_path:STRING
 			compilation_succeeded: BOOLEAN
+			file_array:JSON_ARRAY
+			file_parser:JSON_PARSER
+			input_string:STRING
 		do
 			--Initializing variables
 			create header.make
@@ -161,6 +165,7 @@ feature -- Execution
 			create syntax_message.make_empty
 			create dump_message.make_empty
 			create target.make_empty
+			create input_string.make_empty
 
 			--Settting errors and warnings to false
 			has_error:=false
@@ -173,9 +178,23 @@ feature -- Execution
 			compile_timeout:=false
 			runtime_timeout:=false
 
-			path:=extract_req_parameter(req,"path")
-			clean_compile:=extract_boolean_req_parameter(req,"clean")
-			id:=extract_req_parameter(req,"id")
+			req.read_input_data_into (input_string)
+			create parser.make_parser (input_string)
+
+			if attached {JSON_OBJECT} parser.parse as jv and parser.is_parsed then
+				clean_compile:=send_json_boolean_value (jv, "clean")
+				id:=send_json_value (jv, "id")
+				path:=send_json_value (jv, "path")
+				if not send_json_value (jv, "target").is_empty then
+					target:=send_json_value (jv, "target")
+				end
+				create file_parser.make_parser(send_json_value (jv, "files"))
+				if attached {JSON_ARRAY} file_parser.parse as f_array and file_parser.is_parsed then
+					file_array:=f_array
+					id:=create_file_with_content(file_array,id)
+					clean_compile:=true
+				end
+			end
 
 			--User is using a new project, so change the path setting accordingly
 			if not path.is_empty then
@@ -196,11 +215,6 @@ feature -- Execution
 					--Give error
 					project_timeout:=true
 				end
-			end
-
-			--Extract the target here
-			if attached {STRING} extract_req_parameter(req,"target") as str then
-				target:=str
 			end
 
 			if clean_compile then
@@ -283,6 +297,7 @@ feature -- Execution
 			res.put_header_text (header.string)
 			res.put_string (res_string)
 		end
+
 
 	--Function that first compiles and then runs the program
 	get_execution_result (req: WSF_REQUEST; res: WSF_RESPONSE)
@@ -1596,6 +1611,15 @@ feature --Helper functions
 			end
 		end
 
+	send_json_boolean_value (obj:JSON_OBJECT; key: STRING):BOOLEAN
+		--Sends the string representation of the JSON value	
+		do
+			Result:=false
+			if attached {JSON_BOOLEAN} obj.item(key) as str then
+				Result:=str.item
+			end
+		end
+
 	extract_req_parameter (req:WSF_REQUEST;str:STRING):STRING
 		--Function that extracts the value of str from the request object
 		do
@@ -1740,37 +1764,111 @@ feature --Helper functions
 				end
 			end
 
---		read_table_from_file
---			--This feature is used to retrieve the table that contains the project id and their timestamps from the file
---			local
---				tbl:JSON_OBJECT
---				my_file: PLAIN_TEXT_FILE
---				parser:JSON_PARSER
---			do
---				--create my_file.make("C:\Users\Manav\Desktop\eve_server\server_app\www\table.txt")
---				create my_file.make(".\www\table.txt")
---				if not my_file.is_empty then
---					my_file.open_read
---					my_file.read_stream (my_file.count)
---					create parser.make_parser (my_file.last_string)
---					if attached {JSON_OBJECT} parser.parse as str and parser.is_parsed then
---						table:=str
---					end
---					my_file.close
---				end
---			end
+		create_file_with_content (file_array:JSON_ARRAY; id:STRING) :STRING
+			--Helper function that sets the path and creates a new directory for the compile command
+		local
+			string_array: LIST[STRING]
+			exists:BOOLEAN
+			recursive_address:STRING
+			temp:STRING
+			index:INTEGER
+			dst_path:STRING
+			src:RAW_FILE
+			dst:RAW_FILE
+			unique_value:STRING
+			json_filename:STRING
+			json_file_content:STRING
+			i,j:INTEGER
+--			date_time:DATE_TIME
+--			table_path:STRING
+		do
+			--If the id is blank, create a new unique value here
+			if id.is_empty then
+				unique_value:=uuid_generator.generate_uuid.out
+			else
+				unique_value:=id
+			end
 
---		write_my_table_to_file
---			--Write the table to file
---			local
---				my_file: PLAIN_TEXT_FILE
---			do
---				--create my_file.make("C:\Users\Manav\Desktop\eve_server\server_app\www\table.txt")
---				create my_file.make(".\www\table.txt")
---				my_file.open_write
---				my_file.put_string (table.representation)
---				my_file.close
---			end
+			--Extract the name of the project from the ecf file
+			from
+				i:=1
+			until
+				i>file_array.count
+			loop
+				if attached {JSON_OBJECT} file_array.i_th (i) as j_obj then
+					json_filename:=send_json_value (j_obj, "filename")
+					json_file_content:=send_json_value (j_obj, "content")
+					if json_filename.has_substring (".ecf") then
+						string_array:=json_filename.split ('/')
+						project_name:=string_array.at (string_array.count)
+					end
+				end
+				i:=i+1
+			end
+
+			--Extract file name and fix the project path
+			temp:=project_name.substring (1, project_name.substring_index (".ecf", 1)-1)
+			dst_path:=fixed_project_path+temp+"_"+unique_value
+
+			from
+				i:=1
+			until
+				i>file_array.count
+			loop
+				if attached {JSON_OBJECT} file_array.i_th (i) as j_obj then
+					json_filename:=send_json_value (j_obj, "filename")
+					json_file_content:=send_json_value (j_obj, "content")
+
+					string_array:=json_filename.split ('/')
+
+					if not string_array.at (1).is_equal (".") then
+						create recursive_address.make_from_string (string_array.at (1))
+					end
+					from
+						j:=2
+					until
+						j>=string_array.count
+					loop
+						recursive_address:=recursive_address+"/"+string_array.at (j)
+						j:=j+1
+					end
+					if string_array.count/=1 then
+						json_filename:=string_array.at (string_array.count)
+					else
+						recursive_address:=""
+					end
+					write_file(json_filename,json_file_content,dst_path+recursive_address)
+				end
+				i:=i+1
+			end
+
+			--Assign to the new project path
+			project_path:=dst_path
+
+			Result:=unique_value
+
+		ensure
+			project_path_empty: project_path /= Void and not project_path.is_empty
+			project_name_empty: project_path /= Void and not project_name.is_empty
+		end
+
+		write_file (name:STRING; content:STRING; location:STRING)
+			--Write the table to file
+			local
+				my_file: PLAIN_TEXT_FILE
+				f: RAW_FILE
+				dir:DIRECTORY
+			do
+				create f.make_with_name (location)
+				if not f.exists then
+					create dir.make_with_path (f.path)
+					dir.recursive_create_dir
+				end
+				create my_file.make(location+"/"+name)
+				my_file.open_write
+				my_file.put_string (content)
+				my_file.close
+			end
 
 feature -- Commands to the command line
 
@@ -1942,7 +2040,7 @@ feature -- Commands to the command line
 				--Call the websocket here
 --				if attached app_handler.client_socket as l_socket then
 --					socket:=l_socket
---					app_handler.send_from_server (socket, "")
+--					app_handler.send_from_server (socket, "", execution_timeout)
 --					--Set error_message, output_message, has_runtime_error, runtime_timeout here
 --					error_message:=app_handler.error_message
 --					output_message:=app_handler.output_message

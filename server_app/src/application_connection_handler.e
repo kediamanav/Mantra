@@ -76,7 +76,7 @@ feature -- Request processing
 			end
 		end
 
-	send_from_server (conn: HTTP_STREAM_SOCKET; a_message: READABLE_STRING_8)
+	send_from_server (conn: HTTP_STREAM_SOCKET; a_message: READABLE_STRING_8; execution_timeout:INTEGER)
 		do
 			create p_factory
 			create output_message.make_empty
@@ -94,7 +94,7 @@ feature -- Request processing
 			ec_process.launch
 
 			--Wait for the execution to finish.
-			ec_process.wait_for_exit_with_timeout (10000)
+			ec_process.wait_for_exit_with_timeout (execution_timeout)
 			if ec_process.is_last_wait_timeout then
 				runtime_timeout:=true
 				ec_process.terminate
