@@ -1,0 +1,110 @@
+/*
+ * Class POOLED_THREAD [G#1]
+ */
+
+#include "eif_macros.h"
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+static EIF_TYPE_INDEX gen_type0_277 [] = {242,276,0xFFF8,1,0xFFFF};
+static EIF_TYPE_INDEX gen_type1_277 [] = {276,0xFFF8,1,0xFFFF};
+static EIF_TYPE_INDEX gen_type2_277 [] = {0,0xFFFF};
+static EIF_TYPE_INDEX gen_type3_277 [] = {0,0xFFFF};
+static EIF_TYPE_INDEX gen_type4_277 [] = {276,0xFFF8,1,0xFFFF};
+static EIF_TYPE_INDEX gen_type5_277 [] = {276,0xFFF8,1,0xFFFF};
+static EIF_TYPE_INDEX gen_type6_277 [] = {0,0xFFFF};
+static EIF_TYPE_INDEX gen_type7_277 [] = {276,0xFFF8,1,0xFFFF};
+static EIF_TYPE_INDEX gen_type8_277 [] = {276,0xFFF8,1,0xFFFF};
+static EIF_TYPE_INDEX gen_type9_277 [] = {747,212,0xFFFF};
+static EIF_TYPE_INDEX gen_type10_277 [] = {275,0xFFF8,1,0xFFFF};
+static EIF_TYPE_INDEX gen_type11_277 [] = {0xFFF8,1,0xFFFF};
+static EIF_TYPE_INDEX gen_type12_277 [] = {247,0xFFF8,1,0xFFF9,0,177,0xFFFF};
+static EIF_TYPE_INDEX gen_type13_277 [] = {0xFFF8,1,0xFFFF};
+
+
+static struct desc_info desc_277[] = {
+	{(BODY_INDEX) -1, (BODY_INDEX) -1, INVALID_DTYPE, NULL},
+	{0, (BODY_INDEX)-1, 228, NULL},
+	{1, (BODY_INDEX)-1, 242, gen_type0_277},
+	{2, (BODY_INDEX)-1, 212, NULL},
+	{3, (BODY_INDEX)-1, 212, NULL},
+	{4, (BODY_INDEX)-1, 212, NULL},
+	{5, (BODY_INDEX)-1, 212, NULL},
+	{6, (BODY_INDEX)-1, 212, NULL},
+	{7, (BODY_INDEX)-1, 212, NULL},
+	{8, (BODY_INDEX)-1, 212, NULL},
+	{9, (BODY_INDEX)-1, 212, NULL},
+	{10, (BODY_INDEX)-1, 276, gen_type1_277},
+	{11, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{12, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{13, (BODY_INDEX)-1, 0, gen_type2_277},
+	{14, (BODY_INDEX)-1, 0, gen_type3_277},
+	{15, (BODY_INDEX)-1, 276, gen_type4_277},
+	{16, (BODY_INDEX)-1, 276, gen_type5_277},
+	{17, (BODY_INDEX)-1, 0, gen_type6_277},
+	{18, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{19, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{20, (BODY_INDEX)-1, 15, NULL},
+	{21, (BODY_INDEX)-1, 228, NULL},
+	{22, (BODY_INDEX)-1, 228, NULL},
+	{23, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{24, (BODY_INDEX)-1, 14, NULL},
+	{25, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{26, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{27, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{28, (BODY_INDEX)-1, 276, gen_type7_277},
+	{29, (BODY_INDEX)-1, 218, NULL},
+	{30, (BODY_INDEX)-1, 276, gen_type8_277},
+	{31, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{32, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{823, (BODY_INDEX)-1, 218, NULL},
+	{824, (BODY_INDEX)-1, 218, NULL},
+	{825, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{826, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{831, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{832, 48, 218, NULL},
+	{833, 40, 212, NULL},
+	{852, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{834, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{835, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{836, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{837, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{838, (BODY_INDEX)-1, 212, NULL},
+	{839, (BODY_INDEX)-1, 212, NULL},
+	{840, (BODY_INDEX)-1, 212, NULL},
+	{841, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{842, (BODY_INDEX)-1, 212, NULL},
+	{843, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{844, 0, 140, NULL},
+	{845, (BODY_INDEX)-1, 747, gen_type9_277},
+	{827, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{828, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{829, (BODY_INDEX)-1, 212, NULL},
+	{830, (BODY_INDEX)-1, 218, NULL},
+	{846, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{847, 8, 275, gen_type10_277},
+	{848, 16, (EIF_TYPE_INDEX)-1, gen_type11_277},
+	{849, 24, 247, gen_type12_277},
+	{850, 32, 139, NULL},
+	{851, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{(BODY_INDEX)-1, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, gen_type13_277},
+};
+
+extern void Init277(void);
+void Init277(void)
+{
+	IDSC(desc_277, 0, 276);
+	IDSC(desc_277 + 1, 2, 276);
+	IDSC(desc_277 + 34, 278, 276);
+	IDSC(desc_277 + 36, 280, 276);
+	IDSC(desc_277 + 38, 277, 276);
+	IDSC(desc_277 + 58, 266, 276);
+}
+
+
+#ifdef __cplusplus
+}
+#endif

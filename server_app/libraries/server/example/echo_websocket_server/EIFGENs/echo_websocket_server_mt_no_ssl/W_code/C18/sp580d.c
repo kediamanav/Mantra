@@ -1,0 +1,144 @@
+/*
+ * Class SPECIAL [CHARACTER_32]
+ */
+
+#include "eif_macros.h"
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+static EIF_TYPE_INDEX gen_type0_580 [] = {0xFF11,218,0xFFFF};
+static EIF_TYPE_INDEX gen_type1_580 [] = {0xFF11,230,0xFF12,579,196,0xFFFF};
+static EIF_TYPE_INDEX gen_type2_580 [] = {0xFF11,579,196,0xFFFF};
+static EIF_TYPE_INDEX gen_type3_580 [] = {0,0xFFFF};
+static EIF_TYPE_INDEX gen_type4_580 [] = {0,0xFFFF};
+static EIF_TYPE_INDEX gen_type5_580 [] = {0xFF11,579,196,0xFFFF};
+static EIF_TYPE_INDEX gen_type6_580 [] = {0xFF11,579,196,0xFFFF};
+static EIF_TYPE_INDEX gen_type7_580 [] = {0,0xFFFF};
+static EIF_TYPE_INDEX gen_type8_580 [] = {0xFF11,15,0xFFFF};
+static EIF_TYPE_INDEX gen_type9_580 [] = {0xFF11,218,0xFFFF};
+static EIF_TYPE_INDEX gen_type10_580 [] = {0xFF11,218,0xFFFF};
+static EIF_TYPE_INDEX gen_type11_580 [] = {0xFF11,14,0xFFFF};
+static EIF_TYPE_INDEX gen_type12_580 [] = {579,196,0xFFFF};
+static EIF_TYPE_INDEX gen_type13_580 [] = {0xFF11,579,196,0xFFFF};
+static EIF_TYPE_INDEX gen_type14_580 [] = {0xFF11,408,0xFFF8,1,0xFFFF};
+static EIF_TYPE_INDEX gen_type15_580 [] = {0xFFF8,1,0xFFFF};
+static EIF_TYPE_INDEX gen_type16_580 [] = {0xFFF8,1,0xFFFF};
+static EIF_TYPE_INDEX gen_type17_580 [] = {0xFF11,594,0xFFF8,1,0xFFFF};
+static EIF_TYPE_INDEX gen_type18_580 [] = {0xFF11,580,0xFFF8,1,0xFFFF};
+static EIF_TYPE_INDEX gen_type19_580 [] = {0xFF11,579,196,0xFFFF};
+static EIF_TYPE_INDEX gen_type20_580 [] = {0xFF11,579,196,0xFFFF};
+static EIF_TYPE_INDEX gen_type21_580 [] = {0xFF11,579,196,0xFFFF};
+static EIF_TYPE_INDEX gen_type22_580 [] = {0xFF11,579,196,0xFFFF};
+static EIF_TYPE_INDEX gen_type23_580 [] = {0xFFF8,1,0xFFFF};
+static EIF_TYPE_INDEX gen_type24_580 [] = {0xFF11,162,0xFFFF};
+static EIF_TYPE_INDEX gen_type25_580 [] = {0xFF11,218,0xFFFF};
+
+
+static struct desc_info desc_580[] = {
+	{(BODY_INDEX) 4192, (BODY_INDEX) -1, INVALID_DTYPE, NULL},
+	{0, (BODY_INDEX)-1, 218, gen_type0_580},
+	{1, (BODY_INDEX)-1, 230, gen_type1_580},
+	{2, (BODY_INDEX)-1, 202, NULL},
+	{3, (BODY_INDEX)-1, 202, NULL},
+	{4, (BODY_INDEX)-1, 202, NULL},
+	{5, (BODY_INDEX)-1, 202, NULL},
+	{6, (BODY_INDEX)-1, 202, NULL},
+	{7, (BODY_INDEX)-1, 202, NULL},
+	{8, (BODY_INDEX)-1, 202, NULL},
+	{9, (BODY_INDEX)-1, 202, NULL},
+	{10, (BODY_INDEX)-1, 579, gen_type2_580},
+	{11, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{12, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{13, (BODY_INDEX)-1, 0, gen_type3_580},
+	{14, (BODY_INDEX)-1, 0, gen_type4_580},
+	{15, (BODY_INDEX)-1, 579, gen_type5_580},
+	{16, (BODY_INDEX)-1, 579, gen_type6_580},
+	{17, (BODY_INDEX)-1, 0, gen_type7_580},
+	{18, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{19, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{20, (BODY_INDEX)-1, 15, gen_type8_580},
+	{21, (BODY_INDEX)-1, 218, gen_type9_580},
+	{22, (BODY_INDEX)-1, 218, gen_type10_580},
+	{23, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{24, (BODY_INDEX)-1, 14, gen_type11_580},
+	{25, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{26, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{27, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{28, (BODY_INDEX)-1, 579, gen_type12_580},
+	{29, (BODY_INDEX)-1, 208, NULL},
+	{30, (BODY_INDEX)-1, 579, gen_type13_580},
+	{31, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{32, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{3767, (BODY_INDEX)-1, 408, gen_type14_580},
+	{(BODY_INDEX)-1, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, gen_type15_580},
+	{4193, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4194, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4195, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4197, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, gen_type16_580},
+	{4198, (BODY_INDEX)-1, 169, NULL},
+	{4199, (BODY_INDEX)-1, 208, NULL},
+	{4200, (BODY_INDEX)-1, 208, NULL},
+	{4201, (BODY_INDEX)-1, 594, gen_type17_580},
+	{4202, (BODY_INDEX)-1, 580, gen_type18_580},
+	{4204, (BODY_INDEX)-1, 169, NULL},
+	{4205, (BODY_INDEX)-1, 169, NULL},
+	{4208, (BODY_INDEX)-1, 202, NULL},
+	{4209, (BODY_INDEX)-1, 202, NULL},
+	{4211, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4212, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4213, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4214, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4215, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4216, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4217, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4218, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4219, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4220, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4221, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4222, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4223, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4224, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4175, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4176, (BODY_INDEX)-1, 579, gen_type19_580},
+	{4177, (BODY_INDEX)-1, 579, gen_type20_580},
+	{4178, (BODY_INDEX)-1, 579, gen_type21_580},
+	{4179, (BODY_INDEX)-1, 579, gen_type22_580},
+	{4180, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4181, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4182, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4183, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4184, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4185, (BODY_INDEX)-1, 202, NULL},
+	{4186, (BODY_INDEX)-1, 202, NULL},
+	{4187, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4188, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4190, (BODY_INDEX)-1, 169, NULL},
+	{4191, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, NULL},
+	{4196, (BODY_INDEX)-1, (EIF_TYPE_INDEX)-1, gen_type23_580},
+	{4203, (BODY_INDEX)-1, 162, gen_type24_580},
+	{4210, (BODY_INDEX)-1, 202, NULL},
+	{4206, (BODY_INDEX)-1, 169, NULL},
+	{4207, (BODY_INDEX)-1, 169, NULL},
+	{4210, (BODY_INDEX)-1, 202, NULL},
+	{4189, (BODY_INDEX)-1, 218, gen_type25_580},
+};
+
+extern void Init580(void);
+void Init580(void)
+{
+	IDSC(desc_580, 0, 579);
+	IDSC(desc_580 + 1, 2, 579);
+	IDSC(desc_580 + 34, 52, 579);
+	IDSC(desc_580 + 36, 3, 579);
+	IDSC(desc_580 + 79, 45, 579);
+	IDSC(desc_580 + 82, 44, 579);
+	IDSC(desc_580 + 85, 77, 579);
+}
+
+
+#ifdef __cplusplus
+}
+#endif
