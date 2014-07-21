@@ -1,0 +1,39 @@
+note
+	description: "Summary description for {ACCOUNT}."
+	author: ""
+	date: "$Date$"
+	revision: "$Revision$"
+
+class interface
+	ACCOUNT
+
+create 
+	make
+
+feature 
+
+	balance: REAL_64
+
+	deposit (amt: REAL_64)
+		require
+			amt_positive: amt > 0.to_double
+		ensure
+				balance = old balance + amt
+
+	make (a: REAL_64)
+		require
+			bal_positive: a > 0.to_double
+		ensure
+			bal_set: balance = a
+
+	withdraw (amt: REAL_64)
+		require
+			amt_positive: amt > 0.to_double
+		ensure
+				balance = old balance - amt
+	
+invariant
+	balance_positive: balance > 0.to_double
+
+end -- class ACCOUNT
+

@@ -1,0 +1,10 @@
+Error code: VMFN
+
+Error: two or more features have same name.
+What to do: if they must indeed be different features...
+  names or use renaming; if not, arrange for a join (b...
+  features), an effecting (of deferred by effective), or ...
+
+Class: APPLICATION
+Feature: extra_feature Version from: APPLICATION
+Feature: extra_feature Version from: APPLICATION-------

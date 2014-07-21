@@ -1,0 +1,16 @@
+
+sample_1: system execution failed.
+Following is the set of recorded exceptions:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+APPLICATION         extra_feature @1       number_in_range:
+<000000112E6215A8>                         Precondition violated.        Fail
+-------------------------------------------------------------------------------
+APPLICATION         make @3
+<000000112E6215A8>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         root's creation
+<000000112E6215A8>                         Routine failure.              Exit
+-------------------------------------------------------------------------------

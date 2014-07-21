@@ -1,0 +1,168 @@
+ <div>
+	<!--Body content-->
+	<h1 class="header_text">Mantra : Eiffel as a web service</h1>
+	<div class="main_div">
+		
+		<div class="form_elements">
+			<div>
+				<div class="form_group">
+					<label for="id">Enter Id:</label>
+				</div>
+				<div class="form_group">
+					<input type="text" ng-model="project.id" value="F54C823A-EEC8-4DBB-92C4-7914086BEE4F">F54C823A-EEC8-4DBB-92C4-7914086BEE4F</input>
+				</div>
+			</div>
+			<div>
+				<div class="form_group">
+					<label> Enter Path: </label>
+				</div>
+				<div class="form_group">
+					<input type="text" ng-model="project.path" value="C:/Users/Manav/Desktop/eve_server/plainoutput/plainoutput.ecf">C:/Users/Manav/Desktop/eve_server/plainoutput/plainoutput.ecf</input>
+				</div>
+			</div>
+			<div>
+				<div class="form_group">
+					<label> Enter Class: </label>
+				</div>
+				<div class="form_group">
+					<input type="text" ng-model="project.class" value="LINKED_LIST">LINKED_LIST</input>
+				</div>
+			</div>
+			<div>
+				<div class="form_group">
+					<label> Enter Feature: </label>
+				</div>
+				<div class="form_group">
+					<input type="text" ng-model="project.feature" value="make">make</input>
+				</div>
+			</div>
+			<div>
+				<div class="form_group">
+					<label> Enter Target: </label>
+				</div>
+				<div class="form_group">
+					<input type="text" ng-model="project.target" value="plainoutput">plainoutput</input>
+				</div>
+			</div>
+				<div>
+				<div class="form_group">
+					<label> Enter Command Line: </label>
+				</div>
+				<div class="form_group">
+					<input type="text" ng-model="project.command_line">ec -config plainoutput.ecf -short APPLICATION</input>
+				</div>
+			</div>
+			<div>
+				<div class="form_group">
+					<label> Response Id:</label>
+				</div>
+				<div class="form_group">
+					{{id}}
+				</div>
+			</div>
+			<div>
+				<div class="form_group">
+					<label> Status Code:</label>
+				</div>
+				<div class="form_group">
+					{{status_code}}
+				</div>
+			</div>
+		</div>
+
+		<div class="div_buttons">
+			<button class="btn btn-info" ng-click="compile()">Compile</button>
+			<button class="btn btn-info" ng-click="cleanCompile()">Clean Compile</button>
+			<button class="btn btn-info" ng-click="run_exe()">Run</button>
+			<button class="btn btn-info" ng-click="get_interface_view()">Get Interface View</button>
+			<button class="btn btn-info" ng-click="get_flat_view()">Get Flat View</button>
+			<button class="btn btn-info" ng-click="get_contract_view()">Get Contract View</button>
+			<button class="btn btn-info" ng-click="get_class_descendants()">Get Class Descendants</button>
+			<button class="btn btn-info" ng-click="get_class_ancestors()">Get Class Ancestors</button>
+			<button class="btn btn-info" ng-click="get_class_clients()">Get Class Clients</button>	
+			<button class="btn btn-info" ng-click="get_class_suppliers()">Get Class Suppliers</button>	
+			<button class="btn btn-info" ng-click="get_feature_callers()">Get Feature Callers</button>	
+			<button class="btn btn-info" ng-click="get_user_command_line()">Get Command Line Output</button>	
+		</div>
+	
+		<div class="results">
+			<textarea class="my_textarea">{{result[0].Compile_Message}}{{result[0].Output_Message}}{{result[0].Execution_Output}}{{result[0].result}}{{result[0].Flat_View}}{{result[0].Contract_View}}{{result[0].Class_Descendants_Dump}}{{result[0].Class_Ancestors_Dump}}{{result[0].Class_Clients_Dump}}{{result[0].Class_Suppliers_Dump}}{{result[0].Feature_Callers_Dump}}{{result[0].Error_Message}}{{result[0].Targets}}{{result[0].Command_Line_Dump}}
+			</textarea>
+			
+			<!-- Error Codes-->
+			<div ng-class="{true:'disabled',false:''}[result[0].Has_Compilation_Error==null]">
+				<div ng-class="{true:'disabled',false:''}[result[0].Has_Compilation_Error==false]">
+					<h3> ERROR TABLE</h3>
+					<table>
+						<tr ng-repeat="error in result[0].Errors">
+							<td>
+								<pre>Error Code: {{error.Error_Code}}Error: {{error.Error}}What to do: {{error.What_to_do}}Class: {{error.Class}}Feature: {{error.Feature}}{{error.Before_Line}}Line:{{error.Line}}{{error.After_Line}}</pre>
+								<!--<pre>Dump: {{error.Dump}}</pre>-->
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			
+			<!--info Codes-->
+			<div ng-class="{true:'disabled',false:''}[result[0].Has_info==null]">
+				<div ng-class="{true:'disabled',false:''}[result[0].Has_info==false]">
+					<h3> info TABLE </h3>
+					<table>
+						<tr ng-repeat="info in result[0].infos">
+							<td>
+								<pre>info Code: {{info.info_Code}}info: {{info.info}}What to do: {{info.What_to_do}}Class: {{info.Class}}Feature: {{info.Feature}}{{info.After_Feature}}</pre>
+								<!--<pre>Dump: {{info.Dump}}</pre>-->
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			
+			<div ng-class="{true:'disabled',false:''}[result[0].Has_Runtime_Error==null]">
+				<div ng-class="{true:'disabled',false:''}[result[0].Has_Runtime_Error==false]">
+					<!--Runtime Error Codes-->
+					<h3> RUNTIME ERROR TABLE</h3>
+					{{result[0].Runtime_Text}}
+					<table>
+						<th>Class/Object</th>
+						<th>Routine</th>
+						<th>Message</th>
+						<th>Effect</th>
+						<tr ng-repeat="error in result[0].Runtime_Errors">
+							<td>{{error.Class}}</td>
+							<td>{{error.Feature}} {{error.Routine}}</td>
+							<td>{{error.Message}}</td>
+							<td>{{error.Effect}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			
+		</div>
+		
+		<h2 class="header_text"> Websocket tester</h2>
+		<div class="user_input">
+			<div class="form_group">
+				<label>Your input: </label>
+			</div>
+			<div class="form_group">
+				<input type="text" ng-model="project.input"></input>
+			</div>
+			<div class="form_group">
+				<button class="btn btn-info" ng-click="send_input()">Send</button>
+			</div>
+		</div>
+		<div class="response_dump">
+			<textarea class="response_textarea" ng-model="websocket_tester">
+			</textarea>
+		</div>
+		<h2 class="header_text"> Response Dump</h2>
+		<div class="response_dump">
+			<textarea class="response_textarea">{{dump}}{{output}}
+			</textarea>
+		</div>
+		
+		
+	</div>
+ </div>

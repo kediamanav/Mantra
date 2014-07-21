@@ -1,0 +1,21 @@
+setup_router from APP_SERVICE
+        APP_SERVICE
+                get_class_ancestors
+                get_class_clients
+                get_class_descendants
+                get_class_suppliers
+                get_compilation_result
+                get_contract_view
+                get_execution_result
+                get_flat_view
+                get_interface_view
+                map_uri_template_agent_with_request_methods
+                router
+        WSF_FILE_SYSTEM_HANDLER
+                make_hidden
+                set_directory_index
+        WSF_ROUTER
+                handle_with_request_methods
+                Methods_get
+        WSF_ROUTER_SELF_DOCUMENTATION_HANDLER
+                make

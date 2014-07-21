@@ -1,0 +1,15 @@
+Error code: VJAR
+
+Type error: source of assignment is not compatible with target. 
+What to do: make sure that type of source (right-hand side)
+  is compatible with type of target. 
+
+Class: APPLICATION
+Feature: make
+Target name: c
+Target type: INTEGER_32
+Source type: attached STRING_8
+Line: 26
+        a:=4
+->      c:="4"
+        print(c.out)------------

@@ -1,0 +1,5 @@
+
+\tAPPLICATION
+\t\tARGUMENTS
+\t\t\tITERABLE* [G]
+\t\t\t\tANY

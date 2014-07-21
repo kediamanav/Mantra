@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-13-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-13-0 http://www.eiffel.com/developers/xml/configuration-1-13-0.xsd" name="app" uuid="ED69D38F-5E76-40E3-AF8A-1E2E19A54EE6" library_target="app">
+	<target name="common" abstract="true">
+		<file_rule>
+			<exclude>/EIFGENs$</exclude>
+			<exclude>/CVS$</exclude>
+			<exclude>/.svn$</exclude>
+		</file_rule>
+		<option warning="true" full_class_checking="false" is_attached_by_default="true" void_safety="none" syntax="transitional">
+			<assertions precondition="true" postcondition="true" check="true" invariant="true" loop="true" supplier_precondition="true"/>
+		</option>
+		<setting name="console_application" value="true"/>
+		<setting name="concurrency" value="thread"/>
+		<library name="base" location="$ISE_LIBRARY\library\base\base.ecf" readonly="false"/>
+		<library name="http" location="$ISE_LIBRARY\contrib\library\network\protocol\http\http.ecf"/>
+		<library name="json" location=".\libraries\json-master\library\json.ecf"/>
+		<library name="process" location="$ISE_LIBRARY\library\process\process.ecf" readonly="false"/>
+		<library name="thread" location="$ISE_LIBRARY\library\thread\thread.ecf"/>
+		<library name="time" location="$ISE_LIBRARY\library\time\time.ecf"/>
+		<library name="uuid" location="$ISE_LIBRARY\library\uuid\uuid.ecf"/>
+		<library name="wel" location="$ISE_LIBRARY\library\wel\wel.ecf" readonly="false">
+			<condition>
+				<platform value="windows"/>
+			</condition>
+		</library>
+		<library name="wsf" location="$ISE_LIBRARY\contrib\library\web\framework\ewf\wsf\wsf.ecf" readonly="false"/>
+		<library name="wsf_html" location="$ISE_LIBRARY\contrib\library\web\framework\ewf\wsf_html\wsf_html.ecf"/>
+		
+		<cluster name="src" location=".\src\" recursive="true"/>
+	</target>
+	<target name="app_nino" extends="common">
+		<root class="APPLICATION" feature="make_and_launch"/>
+		<setting name="concurrency" value="thread"/>
+		<library name="dft_nino" location="$ISE_LIBRARY\contrib\library\web\framework\ewf\wsf\default\nino.ecf"/>
+		<library name="nino" location="$ISE_LIBRARY\contrib\library\web\framework\ewf\wsf\connector\nino.ecf"/>
+		<library name="testing" location="$ISE_LIBRARY\library\testing\testing.ecf"/>
+		<cluster name="root" location=".\root\default\" recursive="true"/>
+		<cluster name="tests" location=".\tests\" recursive="true"/>
+	</target>
+	<target name="app_libfcgi" extends="common">
+		<root class="APPLICATION" feature="make_and_launch"/>
+		<setting name="concurrency" value="thread"/>
+		<library name="dft_libfcgi" location="$ISE_LIBRARY\contrib\library\web\framework\ewf\wsf\default\libfcgi.ecf"/>
+		<library name="libfcgi" location="$ISE_LIBRARY\contrib\library\web\framework\ewf\wsf\connector\libfcgi.ecf"/>
+		<library name="testing" location="$ISE_LIBRARY\library\testing\testing.ecf"/>
+		<cluster name="root" location=".\root\default\" recursive="true"/>
+		<cluster name="tests" location=".\tests\" recursive="true"/>
+	</target>
+	<target name="app_cgi" extends="common">
+		<root class="APPLICATION" feature="make_and_launch"/>
+		<setting name="concurrency" value="thread"/>
+		<library name="cgi" location="$ISE_LIBRARY\contrib\library\web\framework\ewf\wsf\connector\cgi.ecf"/>
+		<library name="dft_cgi" location="$ISE_LIBRARY\contrib\library\web\framework\ewf\wsf\default\cgi.ecf"/>
+		<library name="testing" location="$ISE_LIBRARY\library\testing\testing.ecf"/>
+		<cluster name="root" location=".\root\default\" recursive="true"/>
+		<cluster name="tests" location=".\tests\" recursive="true"/>
+	</target>
+	<target name="app_any" extends="common">
+		<root class="APPLICATION" feature="make_and_launch"/>
+		<library name="cgi" location="$ISE_LIBRARY\contrib\library\web\framework\ewf\wsf\connector\cgi.ecf"/>
+		<library name="libfcgi" location="$ISE_LIBRARY\contrib\library\web\framework\ewf\wsf\connector\libfcgi.ecf"/>
+		<library name="nino" location="$ISE_LIBRARY\contrib\library\web\framework\ewf\wsf\connector\nino.ecf"/>
+		<cluster name="root" location=".\root\any\" recursive="true"/>
+	</target>
+	<target name="app" extends="app_any">
+	</target>
+</system>

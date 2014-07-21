@@ -1,0 +1,47 @@
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+FUNCTION            fast_item              Segmentation fault:
+<00007FF50AB0A3C8>                         Operating system signal.      Fail
+-------------------------------------------------------------------------------
+FUNCTION            fast_item
+<00007FF50AB0A3C8>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+FUNCTION            item @5
+<00007FF50AB0A3C8>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+LINKED_LIST         for_all @8
+<00007FF50AAE6178>  (From LINEAR)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+ITP_INTERPRETER_ROOT
+execute_byte_code @5
+<00007FF50AA9D5D8>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+ITP_INTERPRETER_ROOT
+execute_protected @5
+<00007FF50AA9D5D8>  (From ITP_INTERPRETER) Routine failure.              Fail
+-------------------------------------------------------------------------------
+ITP_INTERPRETER_ROOT
+report_execute_request @16
+<00007FF50AA9D5D8>  (From ITP_INTERPRETER) Routine failure.              Fail
+-------------------------------------------------------------------------------
+ITP_INTERPRETER_ROOT
+parse @6
+<00007FF50AA9D5D8>  (From ITP_INTERPRETER) Routine failure.              Fail
+-------------------------------------------------------------------------------
+ITP_INTERPRETER_ROOT
+main_loop @5
+<00007FF50AA9D5D8>  (From ITP_INTERPRETER) Routine failure.              Fail
+-------------------------------------------------------------------------------
+ITP_INTERPRETER_ROOT
+start @8
+<00007FF50AA9D5D8>  (From ITP_INTERPRETER) Routine failure.              Fail
+-------------------------------------------------------------------------------
+ITP_INTERPRETER_ROOT
+execute @40
+<00007FF50AA9D5D8>  (From ITP_INTERPRETER) Routine failure.              Fail
+-------------------------------------------------------------------------------
+ITP_INTERPRETER_ROOT
+root's creation
+<00007FF50AA9D5D8>                         Routine failure.              Exit
+-------------------------------------------------------------------------------

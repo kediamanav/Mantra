@@ -1,0 +1,14 @@
+json_array from EIFFEL_ERRORS
+\tAPP_SERVICE
+\t\tget_error_list
+\tEIFFEL_ERRORS
+\t\tcreate_error_list
+\t\tcreate_syntax_error_list
+\tTEST_EIFFEL_ERRORS
+\t\ttest_error_multiple_errors
+\t\ttest_error_unknown_error
+\t\ttest_error_same_feature_name
+\t\ttest_error_source_not_compatible
+\t\ttest_error_syntax_error
+\t\ttest_error_unknown_identifier
+\t\ttest_error_wrong_number_of_arguments

@@ -1,0 +1,16 @@
+Error code: VUAR(1)
+
+Error: wrong number of actual arguments in feature call.
+What to do: make sure that number of actuals matches number of formals.
+
+Class: APPLICATION
+Feature: make
+Called feature: print (o: detachable ANY) from ANY
+Number of formals: 1
+Number of actuals: 2
+Line: 26
+        a:=4
+->      print(c.out,1)
+      end
+
+-------------------------------------------------------------------------------

@@ -1,0 +1,11 @@
+Warning code: Unused_local_warning
+
+Warning: unreferenced local variable(s)
+What to do: Remove it if you don't plan to use it in the future.
+
+Class: APPLICATION
+Feature: make
+Unused local is:
+        b: INTEGER_32
+
+-------------------------------------------------------------------------------

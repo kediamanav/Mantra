@@ -1,0 +1,75 @@
+/* app css stylesheet */
+
+body {
+  padding-top: 20px;
+}
+
+.form_elements{
+    padding-top: 25px;
+    padding-bottom: 30px;
+    width: 750px;
+    margin:0 auto;
+}
+
+label{
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+}
+
+.form_group{
+  display: inline-block;
+}
+
+.div_buttons{
+  width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.main_div{
+  background-color:#d1e9fb; 
+}
+
+.results{
+  width: 1000px;
+  height: auto;
+  background-color:#E6E6FA;
+  margin:0 auto;
+}
+
+.response_dump{
+  width: 1000px;
+  height: auto;
+  background-color:#E6E6FA;
+  margin:0 auto;
+}
+
+.my_textarea{
+  height:600px;
+  width: 1000px;
+  resize: none;
+  background-color: #FFFFFF;
+}
+
+.response_textarea{
+  height:300px;
+  width: 1000px;
+  resize: none;
+  background-color: #FFFFFF;
+}
+
+.header_text{
+  text-align: center;
+}
+
+.disabled{
+  display: none;
+}
+
+.user_input{
+    width: 700px;
+    margin:0 auto;
+}
+
+p .content {white-space: pre}
