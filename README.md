@@ -1,6 +1,6 @@
 Mantra
 
-Eiffel as a web service
+Eiffel as a web service. This project provides the use of Eiffel language as a web service using rest API's provided by the Eiffel Web Server library.
 
 1. 'app.exe' can be obtained by compiling the finalized version of app.ecf with libfcgi target
 
